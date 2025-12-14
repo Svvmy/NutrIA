@@ -1,29 +1,42 @@
-🎓 Certification IA Developer - Alyra 
+# 🎓 Certification IA Developer - Alyra 
 
-Projets de certification
-Promotion Douglas Adams | Samy BENIDDIR
+> Projets de certification  
+> **Promotion Douglas Adams** | 
 
+---
 
-📋 Projets
-ProjetTypeObjectifRésultatML-Diabetes_predictionMachine LearningPrédiction du risque de diabèteF1-score : 0.80DL-NutrIADeep LearningReconnaissance d'aliments par imageAccuracy : 74.84%
+## 📋 Projets
 
-🩺 Projet 1 : Prédiction du diabète
+| Projet | Type | Objectif | Résultat |
+|--------|------|----------|----------|
+| **ML-Diabetes_prediction** | Machine Learning | Prédiction du risque de diabète | F1-score : **0.80** |
+| **DL-NutrIA** | Deep Learning | Reconnaissance d'aliments par image | Accuracy : **74.84%** |
+
+---
+
+## 🩺 Projet 1 : Prédiction du diabète
+
 Outil d'aide au repérage des patients à risque de diabète à partir de données cliniques (âge, IMC, glycémie, HbA1c...).
 
-Dataset : Kaggle Diabetes Prediction (~100k observations)
-Modèles : Logistic Regression, SVM, Random Forest
-Meilleur modèle : Random Forest (F1 = 0.80)
+- **Dataset** : Kaggle Diabetes Prediction (~100k observations)
+- **Modèles** : Logistic Regression, SVM, Random Forest
+- **Meilleur modèle** : Random Forest (F1 = 0.80)
 
+---
 
-🍔 Projet 2 : NutrIA
+## 🍔 Projet 2 : NutrIA
+
 Application permettant d'identifier un plat à partir d'une photo et d'estimer son apport calorique.
 
-Dataset : Food-101 (101 catégories, 101k images)
-Architecture : MobileNetV2 + Transfer Learning
-Déploiement : FastAPI + Streamlit + Docker
+- **Dataset** : Food-101 (101 catégories, 101k images)
+- **Architecture** : MobileNetV2 + Transfer Learning
+- **Déploiement** : FastAPI + Streamlit + Docker
 
+---
 
-📁 Arborescence
+## 📁 Arborescence
+
+```
 ├── DL-NutrIA/
 │   ├── Deploy/
 │   │   ├── api/
@@ -46,9 +59,14 @@ Déploiement : FastAPI + Streamlit + Docker
 └── ML-Diabetes_prediction/
     ├── diabetes_prediction_dataset.csv
     └── diabetes_prediction_FINAL.ipynb
+```
 
-🚀 Installation
-bashgit clone https://github.com/Svvmy/Alyra_Projet_Certif.git
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/Svvmy/Alyra_Projet_Certif.git
 cd Alyra_Projet_Certif
 
 # Environnement virtuel
@@ -57,3 +75,5 @@ source venv/bin/activate
 
 # Dépendances
 pip install -r requirements.txt
+```
+
