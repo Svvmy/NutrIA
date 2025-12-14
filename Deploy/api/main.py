@@ -80,18 +80,28 @@ async def predict(file: UploadFile = File(...)):
         # Predict
         predictions = model.predict(img_array)
         
-        # Get top prediction
-        predicted_index = np.argmax(predictions[0])
-        probability = float(predictions[0][predicted_index])
+        # Get top 5 predictions
+        top_k = 5
+        top_indices = np.argsort(predictions[0])[-top_k:][::-1]
         
-        predicted_class = "Unknown"
-        if class_names and predicted_index < len(class_names):
-            predicted_class = class_names[predicted_index]
+        top_predictions = []
+        if class_names:
+            for i in top_indices:
+                top_predictions.append({
+                    "class": class_names[i],
+                    "probability": float(predictions[0][i])
+                })
+        
+        # Get top prediction for backward compatibility/easy access
+        predicted_index = top_indices[0]
+        predicted_class = class_names[predicted_index] if class_names else "Unknown"
+        probability = float(predictions[0][predicted_index])
             
         return {
             "class": predicted_class,
             "class_index": int(predicted_index),
-            "probability": probability
+            "probability": probability,
+            "top_predictions": top_predictions
         }
 
     except Exception as e:

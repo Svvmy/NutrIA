@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from PIL import Image
 import io
+import pandas as pd
 
 # API URL
 API_URL = "http://api:8000/predict"  # Use 'api' hostname for Docker, 'localhost' for local
@@ -43,6 +44,21 @@ if uploaded_file is not None:
                     st.success(f"### Prediction: {predicted_class}")
                     st.write(f"Confidence: {probability:.2%}")
                     st.progress(int(probability * 100))
+                    
+                    # Top 5 Visualization
+                    if "top_predictions" in result:
+                        st.write("### Top 5 Probabilities")
+                        top_preds = result["top_predictions"]
+                        
+                        # Create DataFrame for Visualization
+                        df = pd.DataFrame(top_preds)
+                        df = df.set_index("class")
+                        
+                        # Display Chart
+                        st.bar_chart(df["probability"])
+                        
+                        # Optional: Display as a small table if needed, but chart is good.
+                        # st.table(df)
                 else:
                     st.error(f"Error: {response.status_code} - {response.text}")
                     

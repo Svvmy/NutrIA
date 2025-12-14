@@ -2,12 +2,12 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Install system dependencies (if needed for opencv or others, though pillow usually works)
+# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements from parent directory (context should be Deploy/)
+# Copy requirements from parent directory
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
